@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LiCam | MNDRDA</title>
+  <meta name="description" content="LiCam: a pocket-sized depth camera that turns the physical shape of a scene into stylized art. Capstone project built on a hacked Kinect, a Raspberry Pi, and BLE.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MNDRDA">
+  <meta property="og:title" content="LiCam | MNDRDA">
+  <meta property="og:description" content="LiCam: a pocket-sized depth camera that turns the physical shape of a scene into stylized art. Capstone project built on a hacked Kinect, a Raspberry Pi, and BLE.">
+  <meta property="og:url" content="https://marisandrda.github.io/licam.html">
+  <meta property="og:image" content="https://marisandrda.github.io/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+  <script src="assets/licam/capture.js" defer></script>
+  <script src="js/licam-viewer.js" defer></script>
+</head>
+<body data-terrain="wasatch">
+  <header class="site-header">
+    <a class="brand" href="index.html">MNDRDA</a>
+    <nav aria-label="Main">
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+      <a href="fun.html">Fun Things!</a>
+    </nav>
+  </header>
+
+  <main>
+    <header class="page-head reveal">
+      <h1 class="page-title">LiCam: Handheld Depth Camera <span class="badge badge--inline">Current</span></h1>
+      <p class="meta">Capstone project &middot; Team of 4 &middot; Jan 2026 &ndash; Present</p>
+      <p class="role">My role: proposed the project and co-lead the hardware</p>
+      <ul class="tags"><li>Hardware</li><li>Software</li></ul>
+      <nav class="page-nav" aria-label="On this page">
+        <span class="page-nav__label">Jump to</span>
+        <a href="#contributions">Key contributions</a>
+        <a href="#app">Hardware &amp; app</a>
+        <a href="#skills">Skills</a>
+        <a href="#story">Full story</a>
+      </nav>
+    </header>
+
+
+    <div class="split split--wide-left reveal">
+      <figure>
+        <!-- Stand-in until the screen recording exists: swap this frame for <video class="media" src="assets/licam-app.mp4" controls></video> -->
+        <div class="media-frame viewer">
+          <img class="media" src="assets/licam/depth-purple.jpg" alt="A depth image of two people sitting in front of a curtain, colored light lavender for near and deep purple for far" width="640" height="480" draggable="false">
+          <canvas tabindex="0" role="img" aria-label="Interactive 3D point cloud of the same capture. Drag, or use the arrow keys, to rotate."></canvas>
+          <span class="viewer__hint">Drag to rotate</span>
+          <button type="button" class="viewer__reset">Reset view</button>
+        </div>
+        <figcaption>One real capture from the camera as a 3D point cloud: drag to rotate</figcaption>
+      </figure>
+      <div id="contributions">
+        <h2 class="section-title">Key contributions</h2>
+        <ul class="highlights">
+          <li>Turned a full-size Xbox 360 Kinect into a compact, USB-powered depth sensor through teardown, soldering, custom wiring, and power conversion</li>
+          <li>Integrated the sensor, capture button, battery, and status LEDs with a Raspberry Pi 4B, and assembled it all into a 3D-printed housing</li>
+          <li>Captures full 640 &times; 480 depth frames, with a distance in millimetres at every pixel, and transfers them over BLE with chunking and checksum verification</li>
+          <li>App converts raw depth arrays into interactive 3D visualizations with adjustable color gradients</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="section reveal" id="app">
+      <h2 class="section-title">The hardware and app</h2>
+      <div class="figure-row figure-row--mixed">
+        <figure class="figure--landscape">
+          <div class="media-frame">
+            <img class="media" src="assets/licam/hardware.jpg" alt="The stripped-down Kinect depth sensor board, a long green circuit board with two dark camera lenses and orange ribbon cables, wired up on a wooden workbench with helping-hands clips, a perfboard, and a Raspberry Pi behind it" width="1600" height="1200" loading="lazy">
+          </div>
+          <figcaption>Current hardware: the stripped-down Kinect depth sensor board, wired up on the bench</figcaption>
+        </figure>
+        <figure>
+          <a class="media-frame media-frame--phone" href="assets/licam/app-3d.jpg" target="_blank" rel="noopener" aria-label="Open the 3D view screen full size in a new tab">
+            <img class="media" src="assets/licam/app-3d.jpg" alt="The LiCam app's 3D screen: a purple point cloud of 289,760 points showing the corner of a room, with controls to drag to rotate and pinch to zoom" width="800" height="1734" loading="lazy">
+          </a>
+          <figcaption>Interactive 3D view of a captured depth frame: drag to rotate, pinch to zoom</figcaption>
+        </figure>
+        <figure>
+          <a class="media-frame media-frame--phone" href="assets/licam/app-gallery.jpg" target="_blank" rel="noopener" aria-label="Open the gallery screen full size in a new tab">
+            <img class="media" src="assets/licam/app-gallery.jpg" alt="The LiCam app's Gallery screen: a grid of saved depth captures grouped by date, shown in grayscale and in purple, blue, orange, and yellow color gradients" width="800" height="1734" loading="lazy">
+          </a>
+          <figcaption>Gallery of saved depth captures, in grayscale and color gradients</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section reveal" id="depth">
+      <h2 class="section-title">One capture, two views</h2>
+      <div class="figure-row figure-row--mixed">
+        <figure class="figure--landscape">
+          <div class="media-frame">
+            <img class="media" src="assets/licam/depth-gray.jpg" alt="The raw depth frame in grayscale: two people in the foreground in white, a curtain and room corner fading to darker gray behind them" width="640" height="480" loading="lazy">
+          </div>
+          <figcaption>Raw depth: nearer is brighter, black is no reading</figcaption>
+        </figure>
+        <figure class="figure--landscape">
+          <div class="media-frame">
+            <img class="media" src="assets/licam/depth-purple.jpg" alt="The same depth frame colored with a purple gradient, light lavender for near and deep purple for far" width="640" height="480" loading="lazy">
+          </div>
+          <figcaption>The same frame with a purple gradient</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section reveal" id="skills">
+      <h2 class="section-title">Skills demonstrated</h2>
+      <ul class="tags">
+        <li>Xbox 360 Kinect (PrimeSense depth/RGB sensor)</li>
+        <li>Raspberry Pi 4B</li>
+        <li>Buck converters</li>
+        <li>Soldering &amp; custom wiring</li>
+        <li>BLE</li>
+        <li>C/C++</li>
+        <li>Python</li>
+        <li>React Native</li>
+        <li>3D visualization</li>
+        <li>SQLite</li>
+        <li>Supabase</li>
+        <li>3D printing</li>
+      </ul>
+      <p class="softskills"><strong>Beyond the technical:</strong> Initiative &middot; Project leadership &middot; Teamwork</p>
+    </section>
+
+    <section class="section prose reveal" id="story">
+      <h2 class="section-title">The full story</h2>
+      <p>LiCam is a portable camera that captures depth instead of color and turns it into stylized 3D images on a phone. I proposed the project and co-lead the hardware, which was the core engineering challenge. I converted a full-size Xbox 360 Kinect into a compact &ldquo;Kinect Lite&rdquo;: I stripped it down to its depth/RGB sensor board, removed the tilt motor, fan, audio board, and internal USB hub, and soldered new wiring onto the board&rsquo;s connector through a custom header. I then built a USB power and data harness with buck converters supplying the board&rsquo;s lower-voltage rails, replacing the Kinect&rsquo;s stock 12&nbsp;V supply so the sensor runs from a Raspberry Pi 4B and battery.</p>
+      <p>Each capture is a full Kinect depth frame: 640 &times; 480 pixels with a distance in millimetres stored for each one, about 307,000 depth points. The Pi stores and compresses captures, then sends them over Bluetooth Low Energy (BLE) in chunks with order tracking and checksum verification. The app reassembles each capture and renders the depth data as an interactive 3D visualization that users can recolor and edit.</p>
+    </section>
+
+    <nav class="pager" aria-label="More projects">
+      <a href="robotics-ta.html">&larr; Previous: Robotics TA</a>
+      <a href="she-rocks.html">Next: She Rocks &rarr;</a>
+    </nav>
+  </main>
+</body>
+</html>

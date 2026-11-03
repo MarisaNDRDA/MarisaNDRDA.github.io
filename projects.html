@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects | MNDRDA</title>
+  <meta name="description" content="Internships, research, and personal projects by Marisa Nieto Del Rio De Astis: remote sensing, data analysis, and software engineering.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MNDRDA">
+  <meta property="og:title" content="Projects | MNDRDA">
+  <meta property="og:description" content="Internships, research, and personal projects by Marisa Nieto Del Rio De Astis: remote sensing, data analysis, and software engineering.">
+  <meta property="og:url" content="https://marisandrda.github.io/projects.html">
+  <meta property="og:image" content="https://marisandrda.github.io/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+  <script src="assets/licam/capture.js" defer></script>
+  <script src="js/licam-viewer.js" defer></script>
+</head>
+<body data-terrain="beartooths">
+  <header class="site-header">
+    <a class="brand" href="index.html">MNDRDA</a>
+    <nav aria-label="Main">
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+      <a href="fun.html">Fun Things!</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="visually-hidden">Projects</h1>
+    <!-- Shown when you arrive from a skill on the resume page (?skill=python) -->
+    <p class="skill-banner" hidden>Showing projects that use <strong data-skill-name></strong>. <a href="projects.html">Show all projects</a></p>
+
+    <!-- Shown by main.js; without JavaScript every project simply stays visible -->
+    <div class="filters" role="group" aria-label="Filter projects" hidden>
+      <button type="button" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" data-filter="software" aria-pressed="false">Software</button>
+      <button type="button" data-filter="hardware" aria-pressed="false">Hardware</button>
+      <button type="button" data-filter="research" aria-pressed="false">Research</button>
+      <button type="button" data-filter="data" aria-pressed="false">Data</button>
+    </div>
+
+    <section class="section" aria-labelledby="internships-heading" data-filter-section>
+      <h2 id="internships-heading" class="section-heading reveal">Internships &amp; Research</h2>
+      <div class="carousel reveal">
+      <div class="card-grid carousel__track" tabindex="0" role="group" aria-label="Projects, scroll sideways for more">
+        <a class="proj" href="reu.html" data-tags="research hardware data" data-skills="python matlab arduino sensor-integration hyperspectral-imaging">
+          <h3>Remote Sensing at ECE MSU</h3>
+          <div class="media-frame">
+            <img class="media" src="assets/cards/reu.jpg" alt="" width="900" height="675" loading="lazy">
+          </div>
+          <p class="proj__desc">A lab-built river ecosystem for testing a hyperspectral imager.</p>
+          <ul class="tags"><li>Research</li><li>Hardware</li><li>Data</li></ul>
+        </a>
+        <a class="proj" href="moran.html" data-tags="research data" data-skills="python matlab bash linux">
+          <h3>Moran Eye Center</h3>
+          <div class="media-frame proj__frame--white">
+            <img class="media media--contain" src="assets/moran/graphical-abstract.png" alt="" width="1294" height="602" loading="lazy">
+          </div>
+          <p class="proj__desc">Predicting what retinal neurons will do from what they see.</p>
+          <ul class="tags"><li class="tag--current">Current</li><li>Research</li><li>Data</li></ul>
+        </a>
+        <a class="proj" href="slac.html" data-tags="software" data-skills="python javascript react django postgresql docker epics pydm linux">
+          <h3>SLAC Software Engineer &amp; Controls Intern</h3>
+          <div class="media-frame">
+            <img class="media" src="assets/slac/department.jpg" alt="" width="1282" height="776" loading="lazy">
+          </div>
+          <p class="proj__desc">Modernizing software for particle accelerator operators and users.</p>
+          <ul class="tags"><li class="tag--current">Current</li><li>Software</li></ul>
+        </a>
+        <a class="proj" href="robotics-ta.html" data-tags="hardware software" data-skills="c-cpp matlab arduino raspberry-pi sensor-integration">
+          <h3>Robotics TA</h3>
+          <div class="media-frame">
+            <img class="media" src="assets/cards/robotics.jpg" alt="" width="900" height="675" loading="lazy">
+          </div>
+          <p class="proj__desc">Building robots, writing code, and teaching 20 students to do the same.</p>
+          <ul class="tags"><li>Hardware</li><li>Software</li></ul>
+        </a>
+      </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="personal-heading" data-filter-section>
+      <h2 id="personal-heading" class="section-heading reveal">Personal Projects</h2>
+      <div class="carousel reveal">
+      <div class="card-grid carousel__track" tabindex="0" role="group" aria-label="Projects, scroll sideways for more">
+        <a class="proj" href="licam.html" data-tags="hardware software" data-skills="python c-cpp raspberry-pi sensor-integration supabase">
+          <h3>LiCam - Capstone Project</h3>
+          <div class="media-frame viewer viewer--card">
+            <img class="media" src="assets/licam/depth-purple.jpg" alt="" width="640" height="480" loading="lazy" draggable="false">
+            <canvas aria-hidden="true"></canvas>
+          </div>
+          <p class="proj__desc">A pocket-sized depth camera that turns the physical shape of a scene into stylized art.</p>
+          <ul class="tags"><li class="tag--current">Current</li><li>Hardware</li><li>Software</li></ul>
+        </a>
+        <a class="proj" href="she-rocks.html" data-tags="software" data-skills="python javascript react django postgresql docker aws rest-apis security testing ci-cd linux">
+          <h3>She Rocks website &amp; Club lead</h3>
+          <div class="media-frame">
+            <img class="media" src="assets/cards/she-rocks.jpg" alt="" width="900" height="675" loading="lazy">
+          </div>
+          <p class="proj__desc">A production platform that runs sign-ups, scheduling, and admin for a 150-member climbing club.</p>
+          <ul class="tags"><li class="tag--current">Current</li><li>Software</li></ul>
+        </a>
+        <a class="proj" href="gis.html" data-tags="research data" data-skills="gis">
+          <h3>GIS and Water stress personal research</h3>
+          <div class="media-frame">
+            <img class="media media--contain" src="assets/cards/gis.jpg" alt="" width="1600" height="832" loading="lazy">
+          </div>
+          <p class="proj__desc">Mapping where U.S. data centers sit relative to water stress and social vulnerability.</p>
+          <ul class="tags"><li>Research</li><li>Data</li></ul>
+        </a>
+      </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

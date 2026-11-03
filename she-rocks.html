@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>She Rocks | MNDRDA</title>
+  <meta name="description" content="She Rocks web platform: a full-stack Django, React, and PostgreSQL app for event sign-ups, officer scheduling, and admin for a 150-member climbing club.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MNDRDA">
+  <meta property="og:title" content="She Rocks | MNDRDA">
+  <meta property="og:description" content="She Rocks web platform: a full-stack Django, React, and PostgreSQL app for event sign-ups, officer scheduling, and admin for a 150-member climbing club.">
+  <meta property="og:url" content="https://marisandrda.github.io/she-rocks.html">
+  <meta property="og:image" content="https://marisandrda.github.io/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body data-terrain="wasatch">
+  <header class="site-header">
+    <a class="brand" href="index.html">MNDRDA</a>
+    <nav aria-label="Main">
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+      <a href="fun.html">Fun Things!</a>
+    </nav>
+  </header>
+
+  <main>
+    <header class="page-head reveal">
+      <!-- When the site is live: add the real URL as a link here and drop the status line -->
+      <h1 class="page-title">She Rocks Website <span class="badge badge--inline">Current</span></h1>
+      <p class="status">Currently in officer and user testing, coming very soon</p>
+      <p class="meta">Full-Stack Developer &amp; Club Lead &middot; University of Utah &middot; Aug 2025 &ndash; Present</p>
+      <ul class="tags"><li>Software</li><li class="tag--plain">Backend &middot; Frontend &middot; Security &middot; DevOps &amp; cloud &middot; Reliability &amp; operations</li></ul>
+      <nav class="page-nav" aria-label="On this page">
+        <span class="page-nav__label">Jump to</span>
+        <a href="#contributions">Key contributions</a>
+        <a href="#skills">Skills</a>
+        <a href="#story">Full story</a>
+      </nav>
+    </header>
+
+
+    <div class="split split--wide-left reveal">
+      <figure>
+        <div class="media-frame media-frame--site">
+          <img class="media" src="assets/she-rocks/home.jpg" alt="The She Rocks homepage: a group of about 18 smiling women posed in front of a red sandstone canyon wall, with the title &ldquo;She Rocks, University of Utah Women&rsquo;s Climbing Club&rdquo; and a menu for Members, Events, Merch, About, and Sign In" width="1700" height="1163">
+        </div>
+        <figcaption>Screenshot of homepage</figcaption>
+      </figure>
+      <div id="contributions">
+        <h2 class="section-title">Key contributions</h2>
+        <ul class="highlights">
+          <li>Event registration with lottery and first-come selection, waitlist promotion, and row-level locking so two people can&rsquo;t claim the last spot</li>
+          <li>Officer scheduling that finds shared free time, prevents double-booking, and stops officers from overwriting each other&rsquo;s changes</li>
+          <li>Role-based access (member, officer, admin) and hardened accounts: JWT rotation, email verification, rate limiting</li>
+          <li>Security audit that found and fixed a privilege-escalation hole, exposed personal data, and CSV formula injection</li>
+          <li>Upload pipeline that strips EXIF and GPS data so private locations aren&rsquo;t republished</li>
+          <li>200+ automated tests, CI against the production Docker image, and an AWS design with monitoring, backups, and runbooks</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="section reveal" id="skills">
+      <h2 class="section-title">Skills demonstrated</h2>
+      <div class="skill-list">
+        <h3>Backend</h3>
+        <ul class="tags tags--skills">
+          <li>Python</li><li>Django REST Framework</li><li>REST API design</li><li>PostgreSQL</li><li>Data modeling</li><li>Migrations</li><li>Transactions &amp; row-level locking</li><li>Scheduling &amp; matching logic</li><li>Image handling (Pillow)</li><li>iCalendar (.ics) feeds</li><li>CSV export</li>
+        </ul>
+        <h3>Frontend</h3>
+        <ul class="tags tags--skills">
+          <li>React</li><li>JavaScript (ES6+)</li><li>React Router</li><li>Axios</li><li>Vite</li><li>Responsive CSS</li><li>Accessibility basics</li><li>Form validation</li><li>Error boundaries</li>
+        </ul>
+        <h3>Security</h3>
+        <ul class="tags tags--skills">
+          <li>Authentication &amp; authorization</li><li>JWT &amp; token revocation</li><li>Role-based access control</li><li>Rate limiting</li><li>Input validation</li><li>OWASP-style review</li><li>Secrets management</li><li>Secure uploads</li><li>EXIF stripping</li><li>Dependency vulnerability management</li>
+        </ul>
+        <h3>DevOps &amp; cloud</h3>
+        <ul class="tags tags--skills">
+          <li>Docker &amp; Docker Compose</li><li>nginx &amp; Caddy</li><li>HTTPS/TLS</li><li>GitHub Actions CI</li><li>Dependabot</li><li>AWS (EC2, RDS, S3, CloudFront, SES, ALB)</li><li>DNS</li><li>Linux administration</li>
+        </ul>
+        <h3>Reliability &amp; operations</h3>
+        <ul class="tags tags--skills">
+          <li>Unit, integration &amp; regression testing</li><li>Monitoring &amp; error tracking (Sentry, health checks)</li><li>Backup &amp; disaster-recovery planning</li><li>Runbooks &amp; technical documentation</li><li>Staged releases</li>
+        </ul>
+      </div>
+      <p class="softskills"><strong>Beyond the technical:</strong> Leadership &middot; Gathering requirements from real users &middot; Documentation for non-technical testers &middot; Risk prioritization</p>
+    </section>
+
+    <section class="section prose reveal" id="story">
+      <h2 class="section-title">The full story</h2>
+      <p>I designed, built, and maintain the website for the University of Utah&rsquo;s women&rsquo;s and nonbinary climbing club. Members create verified accounts, sign up for trips and events, and browse photos and merch, while officers manage events, waitlists, attendance, and outdoor-day scheduling through an admin dashboard.</p>
+      <p>Under the hood it&rsquo;s a Django REST API with PostgreSQL and a React frontend, secured with role-based permissions, rate limiting, and token-based authentication. I wrote over 200 automated tests, built a CI pipeline, containerized everything with Docker, and designed an AWS production setup with monitoring and backups. I also audited the app for vulnerabilities and fixed the issues I found before launch.</p>
+
+      <h3>The details behind the highlights</h3>
+      <p><strong>Registration and scheduling.</strong> Events can fill by first-come-first-served or a weighted lottery, with capacity limits and automatic waitlist promotion. The last spot is protected by database row-level locking. The officer scheduling tool finds time slots where at least two officers are free and prevents double-booking across overlapping time ranges. It also uses optimistic concurrency checks, so two officers editing at once can&rsquo;t overwrite each other&rsquo;s changes.</p>
+      <p><strong>Roles and accounts.</strong> A three-tier role system (member, officer, admin) enforces permission checks on every API endpoint, and admins control promotion and demotion. Authentication uses JWTs with refresh-token rotation and server-side revocation. Email verification uses signed, expiring tokens, password resets are single-use and expire after an hour, strong passwords are enforced, and login, registration, and reset requests are rate-limited.</p>
+      <p><strong>Security audit.</strong> Besides the privilege-escalation hole that let any member make themselves an admin, the audit turned up personal data exposed through public API responses, rate-limit bypass through spoofed proxy headers, and spreadsheet-formula injection in CSV exports. I fixed all of them. Uploaded images are size-limited, resized, rotation-corrected, and stripped of EXIF metadata, including GPS location, so private location data isn&rsquo;t republished.</p>
+      <p><strong>Testing and CI.</strong> The 200+ tests include unit, API, and security regression tests. GitHub Actions runs them against both a development configuration and the actual production Docker image, checks for missing database migrations, runs Django&rsquo;s deployment security checks, and blocks merges on dependency vulnerabilities (pip-audit and npm audit). Weekly scheduled scans and Dependabot updates keep dependencies current.</p>
+      <p><strong>Infrastructure.</strong> The app runs on Docker Compose (Django with gunicorn, PostgreSQL, nginx, and Caddy), hardened for production with multi-stage builds, non-root users, read-only filesystems, dropped Linux capabilities, health checks, and automatic database migrations on deploy. The AWS design uses RDS PostgreSQL with point-in-time recovery, S3 and CloudFront for media, SES for email, and an ALB with TLS. I wrote operations runbooks covering monitoring and alerting (Sentry and CloudWatch), backups, a restore drill, the release procedure, and smoke tests.</p>
+    </section>
+
+    <nav class="pager" aria-label="More projects">
+      <a href="licam.html">&larr; Previous: LiCam</a>
+      <a href="gis.html">Next: GIS Water Stress &rarr;</a>
+    </nav>
+  </main>
+</body>
+</html>

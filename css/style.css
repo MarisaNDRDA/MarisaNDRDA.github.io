@@ -1,0 +1,1820 @@
+/* MNDRDA portfolio — shared styles */
+
+:root {
+  --sage: #98ad94;
+  --sage-dark: #7f967b;
+  --sage-light: #e4ebe2;
+  --page-width: 1200px;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --accent: #b4553a; /* terracotta */
+  --accent-dark: #9a452d;
+  --accent-tint: #faf3f0;
+  --ink: #000;
+  --bg: #fff;
+  --radius-lg: 3.5rem;
+  --radius-md: 2.5rem;
+  --gutter: clamp(1rem, 2vw, 1.75rem);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Source Sans 3", "Source Sans Pro", system-ui, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.55;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  padding: 1.1rem max(var(--gutter), calc((100% - var(--page-width)) / 2));
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg);
+  border-bottom: 1rem solid var(--sage);
+  transition: box-shadow 0.2s ease;
+}
+
+.brand {
+  font-size: clamp(1.3rem, 1.6vw, 1.6rem);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem clamp(1rem, 1.6vw, 1.75rem);
+}
+
+.site-header nav a {
+  font-size: clamp(1.05rem, 1.35vw, 1.3rem);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+.site-header nav a:hover,
+.site-header nav a[aria-current="page"] {
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Page layout ---------- */
+
+/* Soft frosted panel so the contour lines never compete with the text */
+main {
+  max-width: calc(var(--page-width) + 2 * var(--gutter));
+  margin: 1.25rem auto 2rem;
+  padding: clamp(1.5rem, 4vw, 3rem) var(--gutter) 4rem;
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: 2rem;
+}
+
+/* Home page: start the intro higher so the Projects heading is closer to the first screen */
+main:has(> .hero) {
+  padding-top: 1rem;
+}
+
+@media (max-width: 800px) {
+  main {
+    margin-top: 0;
+    border-radius: 0;
+  }
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 0.5rem 0 0;
+  font-size: clamp(1.1rem, 1.6vw, 1.45rem);
+}
+
+.page-head {
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.section + .section,
+.split + .section {
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: start;
+}
+
+.split--wide-left {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+}
+
+.prose {
+  max-width: 75ch;
+}
+
+.prose p {
+  margin: 0 0 1rem;
+}
+
+.meta {
+  margin: 0.5rem 0 0;
+  font-style: italic;
+}
+
+.tagline {
+  font-weight: 700;
+}
+
+.highlights {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.highlights li {
+  margin-bottom: 0.4rem;
+}
+
+.tech {
+  margin-top: 1rem;
+}
+
+.prose h2,
+.prose h3 {
+  margin-bottom: 0.75rem;
+}
+
+/* ---------- Placeholder boxes (swap for <img>/<video> later) ---------- */
+
+.ph {
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 700;
+  background: var(--sage);
+  border-radius: var(--radius-md);
+}
+
+.ph--large {
+  border-radius: var(--radius-lg);
+}
+
+.ph--4x3 {
+  aspect-ratio: 4 / 3;
+}
+
+.ph--3x2 {
+  aspect-ratio: 3 / 2;
+}
+
+.ph--wide {
+  aspect-ratio: 16 / 7;
+}
+
+.ph--tall {
+  aspect-ratio: 4 / 5;
+}
+
+.ph--square {
+  aspect-ratio: 1;
+}
+
+/* Real media dropped in place of a placeholder */
+.media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  margin-top: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.figure-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+/* ---------- Project cards ---------- */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  margin-top: 1.5rem;
+}
+
+.proj {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+/* Summary sits under the image; it takes the spare height so every card's tags line up */
+.proj__desc {
+  flex: 1 0 auto;
+  margin: 0.75rem 0 0;
+}
+
+.proj h3 {
+  display: flex;
+  align-items: flex-end;
+  min-height: 2.6em;
+  margin-bottom: 0.75rem;
+}
+
+.proj .ph,
+.proj .media-frame {
+  aspect-ratio: 4 / 3;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.proj:hover .ph,
+.proj:focus-visible .ph {
+  transform: translateY(-6px);
+  background: var(--sage-dark);
+}
+
+.proj:hover .media-frame,
+.proj:focus-visible .media-frame {
+  transform: translateY(-6px);
+}
+
+.proj__frame--white {
+  background: #fff;
+}
+
+/* Letterboxed images (Moran diagram, GIS map) get a thin edge so the frame still reads against the page */
+.proj .media-frame:has(.media--contain) {
+  border: 1px solid #d6e0d3;
+}
+
+.more-link {
+  display: inline-block;
+  margin-top: 1.25rem;
+  color: var(--accent-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.more-link:hover,
+.more-link:focus-visible {
+  text-decoration: underline;
+}
+
+.card-grid--tiles {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+}
+
+.heading-note {
+  margin-left: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+/* ---------- Home ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: center;
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+
+.hero__side {
+  width: 100%;
+  max-width: 300px;
+  justify-self: end;
+}
+
+.hero__photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+}
+
+.hero__side .availability {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.hero__side .intro__links {
+  margin-top: 1rem;
+}
+
+.hero__bio {
+  max-width: 80ch;
+  margin-top: 1.5rem;
+  /* Nudged down for breathing room without shifting the name, degrees or photo */
+  position: relative;
+  top: 1.75rem;
+}
+
+.hero__bio p {
+  margin: 0 0 1rem;
+}
+
+/* Flip card: professional photo in front, a random "fun" photo behind */
+.flip {
+  position: relative;
+  border-radius: var(--radius-lg);
+  perspective: 1200px;
+}
+
+.flip__inner {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.flip__face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip__back {
+  transform: rotateY(180deg);
+}
+
+/* Flipping only exists when the script is running */
+.js .flip {
+  cursor: pointer;
+}
+
+.js .flip.is-flipped .flip__inner {
+  transform: rotateY(180deg);
+}
+
+@media (hover: hover) {
+  .js .flip:hover .flip__inner {
+    transform: rotateY(180deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip__inner {
+    transition: none;
+  }
+
+  .js .flip.is-flipped .flip__inner,
+  .js .flip:hover .flip__inner {
+    transform: none;
+  }
+
+  .flip__back {
+    transform: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .js .flip.is-flipped .flip__back,
+  .js .flip:hover .flip__back {
+    opacity: 1;
+  }
+}
+
+.about {
+  max-width: 75ch;
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.intro__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  margin-top: 1.25rem;
+  font-weight: 700;
+}
+
+.degrees {
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  font-weight: 700;
+}
+
+.degrees li {
+  padding-left: 0.9rem;
+  border-left: 0.25rem solid var(--accent);
+}
+
+.degrees li + li {
+  margin-top: 0.6rem;
+}
+
+.degrees span {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* ---------- Contact ---------- */
+
+.contact {
+  display: grid;
+  grid-template-columns: minmax(180px, 380px) minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.contact__photo {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 4 / 5;
+}
+
+.contact__details {
+  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+  font-weight: 700;
+}
+
+.contact__details p {
+  margin: 0 0 1rem;
+}
+
+.contact__details ul {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.contact__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 3rem;
+}
+
+/* ---------- Detail-page extras ---------- */
+
+.placeholder-note {
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.resume-frame {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 8.5 / 11;
+  border: 0.5rem solid var(--sage);
+  border-radius: var(--radius-md);
+}
+
+.resume-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.skill-list h2 {
+  margin-top: 1.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--sage);
+  font-size: clamp(1.1rem, 1.4vw, 1.3rem);
+}
+
+.skill-list h2:first-child {
+  margin-top: 0;
+}
+
+.skill-list .skill-hint + h2 {
+  margin-top: 1rem;
+}
+
+/* ---------- Accent, buttons, badges, tags ---------- */
+
+[hidden] {
+  display: none !important;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1.3rem;
+  background: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--accent-dark);
+}
+
+.btn--ghost:hover,
+.btn--ghost:focus-visible {
+  color: #fff;
+}
+
+.badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  padding: 0.15rem 0.7rem;
+  background: var(--accent);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.badge--inline {
+  position: static;
+  display: inline-block;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.proj .ph {
+  position: relative;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  padding: 0.2rem 0.8rem;
+  background: var(--sage-light);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+/* Plain-text focus areas that sit beside the tag bubbles */
+.tags .tag--plain {
+  padding: 0.2rem 0 0.2rem 0.5rem;
+  background: none;
+  font-weight: 400;
+}
+
+.tags .tag--current {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ---------- Home hero ---------- */
+
+.hero__tagline {
+  max-width: 44ch;
+  margin: 1rem 0 0;
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  line-height: 1.35;
+}
+
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+/* ---------- Projects filters ---------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.filters button {
+  padding: 0.1rem 0.7rem;
+  background: var(--bg);
+  border: 1.5px solid var(--sage);
+  border-radius: 999px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.filters button:hover {
+  background: var(--sage-light);
+}
+
+.filters button[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* ---------- Project detail pages ---------- */
+
+.page-title {
+  font-size: clamp(1.75rem, 2.8vw, 2.5rem);
+}
+
+.role {
+  margin: 0.5rem 0 0;
+  font-weight: 700;
+}
+
+.page-head .tagline {
+  margin: 0.75rem 0 0;
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  max-width: 60ch;
+}
+
+.section-title {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.25rem, 1.7vw, 1.55rem);
+}
+
+.takeaway {
+  max-width: 75ch;
+  margin: 1.25rem 0 0;
+  padding: 1rem 1.5rem;
+  background: var(--accent-tint);
+  border-left: 0.35rem solid var(--accent);
+  border-radius: 0 1rem 1rem 0;
+}
+
+.takeaway strong {
+  display: block;
+  color: var(--accent-dark);
+}
+
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--sage);
+  font-size: 1rem;
+}
+
+.pager a {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pager a:hover,
+.pager a:focus-visible {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+/* ---------- Scroll-in (script adds .in; without script everything shows) ---------- */
+
+.js .reveal:not(.in) {
+  opacity: 0;
+}
+
+.reveal.in {
+  animation: rise 0.6s ease backwards;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal:not(.in) {
+    opacity: 1;
+  }
+
+  .reveal.in {
+    animation: none;
+  }
+
+  .btn {
+    transition: none;
+  }
+}
+
+/* ---------- Display font ---------- */
+
+h1,
+h2,
+h3,
+.brand {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Header shadow once the page scrolls ---------- */
+
+.site-header.is-scrolled {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- Topographic contour background (one range per page) ---------- */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url("../assets/terrain/wasatch.svg") center / cover no-repeat;
+  opacity: 0.7;
+}
+
+body[data-terrain="beartooths"]::before {
+  background-image: url("../assets/terrain/beartooths.svg");
+}
+
+body[data-terrain="olympics"]::before {
+  background-image: url("../assets/terrain/olympics.svg");
+}
+
+body[data-terrain="tetons"]::before {
+  background-image: url("../assets/terrain/tetons.svg");
+}
+
+/* ---------- Home: availability ---------- */
+
+.availability {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.65rem;
+  margin: 0.75rem 0 0;
+  font-size: 1.1rem;
+}
+
+.availability span {
+  grid-column: 2;
+}
+
+.availability::before {
+  content: "";
+  flex: none;
+  width: 0.6rem;
+  height: 0.6rem;
+  margin-top: 0.4em;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+/* ---------- Resume: skills that link to projects ---------- */
+
+.skill-tagline {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.skill-hint {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.skill-list h3 {
+  margin: 1rem 0 0.25rem;
+  color: var(--accent-dark);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Skills read as quiet text lists; only the items that link to projects are underlined */
+.tags--skills {
+  gap: 0.15rem 1.1rem;
+  margin: 0;
+}
+
+.tags--skills li {
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  font-size: 0.98rem;
+  font-weight: 400;
+}
+
+.tags--skills a,
+.tags--skills span {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.tags--skills a {
+  color: inherit;
+  text-decoration: underline dotted var(--sage-dark);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+}
+
+.tags--skills a:hover,
+.tags--skills a:focus-visible {
+  color: var(--accent-dark);
+  text-decoration: underline solid var(--accent);
+}
+
+.skill-banner {
+  margin: 0 0 1.5rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--accent-tint);
+  border-left: 0.35rem solid var(--accent);
+  border-radius: 0 1rem 1rem 0;
+}
+
+.skill-banner a {
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+/* ---------- Before / after slider ---------- */
+
+.compare {
+  --pos: 50%;
+  position: relative;
+  max-width: 900px;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.compare__layer {
+  position: absolute;
+  inset: 0;
+}
+
+.compare__layer > * {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.compare__before {
+  clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+}
+
+.compare__before .ph {
+  background: var(--sage-dark);
+}
+
+.compare__handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  width: 4px;
+  margin-left: -2px;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+.compare__handle::after {
+  content: "\2194";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: var(--accent);
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 700;
+  transform: translate(-50%, -50%);
+}
+
+.compare__range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+}
+
+.compare:has(.compare__range:focus-visible) {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.compare .media {
+  border-radius: 0;
+}
+
+/* ---------- Real images (swap for the .ph placeholders) ---------- */
+
+.media-frame {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--sage-light);
+  border-radius: var(--radius-md);
+}
+
+.media-frame--3x2 {
+  aspect-ratio: 3 / 2;
+}
+
+.media-frame--tall {
+  aspect-ratio: 4 / 5;
+}
+
+.media-frame a {
+  display: block;
+  height: 100%;
+}
+
+.media-frame .media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.media--contain {
+  object-fit: contain;
+  background: #fff;
+}
+
+.figure-row--compact {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 320px));
+  justify-content: start;
+}
+
+figcaption a {
+  color: var(--accent-dark);
+}
+
+/* Page title for screen readers on pages that open straight into their content */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Projects page: smaller section headings so both rows of cards fit on one screen */
+.section-heading {
+  font-size: clamp(1.4rem, 2vw, 1.75rem);
+}
+
+.section-heading + .carousel .carousel__track {
+  margin-top: 0.25rem;
+}
+
+/* Sideways carousel for project cards: the next card peeks in to show there is more */
+.carousel {
+  position: relative;
+}
+
+.carousel__track {
+  display: flex;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  margin-top: 1rem;
+  padding: 0.5rem 0.25rem 0.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 0.25rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sage) transparent;
+}
+
+.carousel__track > .proj {
+  flex: 0 0 clamp(240px, 26%, 300px);
+  scroll-snap-align: start;
+}
+
+.carousel__btn {
+  position: absolute;
+  top: 8rem;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--sage);
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  color: var(--accent-dark);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: background 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+.carousel__btn:hover,
+.carousel__btn:focus-visible {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  opacity: 1;
+}
+
+.carousel__btn[disabled] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.carousel__btn--prev {
+  left: -1rem;
+}
+
+.carousel__btn--next {
+  right: -1rem;
+}
+
+@media (max-width: 800px) {
+  .carousel__track > .proj {
+    flex-basis: 78%;
+  }
+
+  .carousel__btn--prev {
+    left: 0.25rem;
+  }
+
+  .carousel__btn--next {
+    right: 0.25rem;
+  }
+}
+
+/* Sky glint: before/after pair | stacked charts | plain-language notes, all in one view */
+.sky {
+  display: grid;
+  grid-template-columns: 400px 300px minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
+  margin-top: 1.25rem;
+}
+
+.sky h3 {
+  margin-bottom: 0.6rem;
+}
+
+/* Day 1 and Day 3 side by side at the same height: column widths follow the images' aspect ratios */
+.sky__pair {
+  display: grid;
+  grid-template-columns: 0.398fr 0.606fr;
+  gap: 0.75rem;
+  align-items: start;
+  max-width: 440px;
+}
+
+.sky__pair figure {
+  margin: 0;
+}
+
+.media-frame--day1 {
+  aspect-ratio: 138 / 347;
+}
+
+.media-frame--day3 {
+  aspect-ratio: 405 / 668;
+}
+
+.sky .figure-row {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.6rem;
+}
+
+.sky figcaption {
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.sky__notes ul {
+  margin: 0 0 1.25rem;
+  padding-left: 1.2rem;
+}
+
+.sky__notes li {
+  margin-bottom: 0.6rem;
+}
+
+/* Labels under the slider */
+.compare__legend {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* Both captures shown whole on the same soft mat; Day 3 sits a little smaller so its scale is closer to Day 1 */
+.compare .media--contain {
+  background: var(--sage-light);
+}
+
+.compare__after .media--contain {
+  padding: 8%;
+}
+
+/* "How it came together" process strip */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps li {
+  counter-increment: step;
+  background: var(--sage-light);
+  border-radius: 1.25rem;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.steps li:hover {
+  transform: translateY(-4px);
+  background: #d6e0d3;
+}
+
+.steps a {
+  display: block;
+  height: 100%;
+  padding: 1rem 1.1rem;
+  text-decoration: none;
+}
+
+.steps a::before {
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  margin-bottom: 0.5rem;
+  background: var(--accent);
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 700;
+}
+
+.steps strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+}
+
+.steps span {
+  font-size: 0.95rem;
+}
+
+.media-frame--wide {
+  aspect-ratio: 590 / 274;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .steps li {
+    transition: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .sky {
+    grid-template-columns: 400px minmax(0, 340px);
+  }
+
+  .sky__notes {
+    grid-column: 1 / -1;
+    max-width: 75ch;
+  }
+}
+
+/* In-page "Jump to" links under a project's title */
+.page-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.page-nav__label {
+  margin-right: 0.25rem;
+  color: var(--accent-dark);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page-nav a {
+  padding: 0.25rem 0.9rem;
+  border: 2px solid var(--sage);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.page-nav a:hover,
+.page-nav a:focus-visible {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* ---------- 404 ---------- */
+
+.lost {
+  max-width: 40rem;
+  margin: clamp(1rem, 6vw, 4rem) auto 0;
+  text-align: center;
+}
+
+.lost__code {
+  margin: 0;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 16vw, 9rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.lost .hero__cta {
+  justify-content: center;
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 800px) {
+  .split,
+  .split--wide-left,
+  .sky,
+  .hero,
+  .contact {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Phone order: name, degrees, photo, availability, buttons, then the bio */
+  .hero {
+    row-gap: 0;
+  }
+
+  .hero__main,
+  .hero__side {
+    display: contents;
+  }
+
+  .hero h1 {
+    order: 1;
+  }
+
+  .hero .degrees {
+    order: 2;
+  }
+
+  .hero__photo {
+    order: 3;
+    max-width: 260px;
+    margin-top: 1.5rem;
+  }
+
+  .hero .availability {
+    order: 4;
+  }
+
+  .hero .intro__links {
+    order: 5;
+  }
+
+  .hero__bio {
+    order: 6;
+    margin-top: 2rem;
+    top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .proj .ph {
+    transition: none;
+  }
+}
+
+/* Moran figures: scientific plots shown whole, click to enlarge */
+.media-frame--abstract {
+  aspect-ratio: 1294 / 602;
+  background: #fff;
+  border-radius: 0.75rem;
+}
+
+.media-frame--16x9 {
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: #fff;
+  border-radius: 0.75rem;
+  cursor: zoom-in;
+}
+
+.media-frame--map {
+  display: block;
+  aspect-ratio: 2000 / 1545;
+  background: #fff;
+  border-radius: 0.75rem;
+  cursor: zoom-in;
+}
+
+.compare--map {
+  max-width: none;
+  aspect-ratio: 2000 / 1545;
+}
+
+.compare--map .compare__after .media--contain {
+  padding: 0;
+}
+
+.compare--map .media--contain {
+  background: #fff;
+}
+
+.compare__legend--map {
+  margin-bottom: 0.75rem;
+}
+
+.media-frame--team {
+  aspect-ratio: 1282 / 776;
+}
+
+.media-frame--site {
+  aspect-ratio: 1917 / 1311;
+}
+
+.media-frame--square {
+  aspect-ratio: 1;
+}
+
+/* Hardware photo and phone screenshots side by side; wraps on narrow screens */
+.figure-row--mixed {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.5rem clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.figure-row--mixed figure {
+  flex: 0 1 280px;
+  min-width: 200px;
+}
+
+.figure-row--mixed .figure--landscape {
+  flex-basis: 380px;
+}
+
+/* LiCam 3D point-cloud viewer; the still image shows until the viewer is running */
+.viewer {
+  position: relative;
+  background: #1c1c1e;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.viewer canvas {
+  position: absolute;
+  inset: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.viewer.is-live canvas {
+  display: block;
+}
+
+.viewer.is-live .media {
+  visibility: hidden;
+}
+
+.viewer--card canvas {
+  pointer-events: none;
+  cursor: inherit;
+}
+
+.viewer.is-dragging canvas {
+  cursor: grabbing;
+}
+
+.viewer__hint,
+.viewer__reset {
+  display: none;
+  position: absolute;
+  bottom: 0.75rem;
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(28, 28, 30, 0.7);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.viewer__hint {
+  left: 0.75rem;
+  pointer-events: none;
+}
+
+.viewer__reset {
+  right: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.viewer__reset:hover,
+.viewer__reset:focus-visible {
+  background: var(--accent);
+}
+
+.viewer.is-live .viewer__hint,
+.viewer.is-live .viewer__reset {
+  display: block;
+}
+
+.viewer__hint[hidden] {
+  display: none !important;
+}
+
+.figure-row--rovers {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.figure-row--rovers figcaption {
+  font-size: 0.9rem;
+}
+
+.media-frame--portrait {
+  display: block;
+  aspect-ratio: 3 / 4;
+}
+
+a.media-frame--portrait {
+  background: #fff;
+  cursor: zoom-in;
+}
+
+/* Phone screenshots: kept narrow so the tall frames don't dominate the page */
+.figure-row--phones {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 280px));
+  justify-content: start;
+}
+
+.media-frame--phone {
+  display: block;
+  aspect-ratio: 1179 / 2556;
+  background: #222;
+  border-radius: 1.5rem;
+  cursor: zoom-in;
+}
+
+.media-frame--16x9.media-frame--tall {
+  aspect-ratio: 2004 / 1520;
+}
+
+/* ---------- Fun Things: tilted prints, film strip, photo viewer ---------- */
+
+.prints {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.75rem 1.5rem;
+  padding: 1rem 0 0.5rem;
+}
+
+.print {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.5rem 1.9rem;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: zoom-in;
+}
+
+.print img {
+  display: block;
+  width: auto;
+  height: clamp(170px, 17vw, 220px);
+}
+
+.print:hover,
+.print:focus-visible {
+  z-index: 2;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  transform: rotate(0deg) translateY(-6px) scale(1.03);
+}
+
+.print__caption {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.4rem;
+  left: 0.5rem;
+  font-family: 'Fraunces', serif;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.print__caption:empty {
+  display: none;
+}
+
+/* Film strip: dark base with sprocket holes along both edges, scrolls sideways */
+.carousel--film .carousel__btn {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.film {
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  padding: 2.25rem 0.75rem;
+  border-radius: 0.5rem;
+  background:
+    linear-gradient(90deg, #efe8d8 0 12px, transparent 12px) 0 0.7rem / 26px 12px repeat-x local,
+    linear-gradient(90deg, #efe8d8 0 12px, transparent 12px) 0 calc(100% - 0.7rem) / 26px 12px repeat-x local,
+    #17120e;
+}
+
+.frame {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  width: clamp(260px, 30vw, 380px);
+  height: clamp(180px, 20vw, 253px);
+  background: #0b0907;
+  scroll-snap-align: start;
+  cursor: zoom-in;
+}
+
+/* Pinned to the frame so tall photos shrink to fit instead of spilling out */
+.frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: filter 0.2s ease;
+}
+
+.frame:hover img,
+.frame:focus-visible img {
+  filter: brightness(1.12);
+}
+
+.frame__no {
+  position: absolute;
+  bottom: 0.3rem;
+  left: 0.45rem;
+  color: #e8a33d;
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+.lightbox {
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
+  padding: 0;
+  border: 0;
+  background: rgba(14, 12, 10, 0.94);
+  color: #fff;
+}
+
+.lightbox[open] {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr) 4rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.lightbox::backdrop {
+  background: rgba(14, 12, 10, 0.94);
+}
+
+html:has(.lightbox[open]) {
+  overflow: hidden;
+}
+
+.lightbox__fig {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 100%;
+  margin: 0;
+}
+
+.lightbox__img {
+  max-width: 100%;
+  max-height: 84dvh;
+  width: auto;
+  height: auto;
+  border-radius: 4px;
+}
+
+.lightbox__caption {
+  font-weight: 700;
+  text-align: center;
+}
+
+.lightbox__count {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0;
+  right: 0;
+  margin: 0;
+  font-size: 0.9rem;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.lightbox__nav,
+.lightbox__close {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox__nav:hover,
+.lightbox__nav:focus-visible,
+.lightbox__close:hover,
+.lightbox__close:focus-visible {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+@media (max-width: 800px) {
+  .lightbox[open] {
+    grid-template-columns: 0 minmax(0, 1fr) 0;
+  }
+
+  .lightbox__nav {
+    position: absolute;
+    bottom: 0.5rem;
+  }
+
+  .lightbox__nav--prev {
+    left: 0.75rem;
+  }
+
+  .lightbox__nav--next {
+    right: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .print,
+  .frame img {
+    transition: none;
+  }
+}
+
+/* Soft skills: a quiet line under each project's skills */
+.softskills {
+  margin: 0.75rem 0 0;
+  color: var(--accent-dark);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.softskills strong {
+  font-style: normal;
+}
+
+.status {
+  margin: 0.5rem 0 0;
+  color: var(--accent-dark);
+  font-weight: 700;
+}

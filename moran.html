@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moran Eye Center | MNDRDA</title>
+  <meta name="description" content="Moran Eye Center: LNP and GLM models that predict retinal neuron responses from visual stimuli.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MNDRDA">
+  <meta property="og:title" content="Moran Eye Center | MNDRDA">
+  <meta property="og:description" content="Moran Eye Center: LNP and GLM models that predict retinal neuron responses from visual stimuli.">
+  <meta property="og:url" content="https://marisandrda.github.io/moran.html">
+  <meta property="og:image" content="https://marisandrda.github.io/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body data-terrain="wasatch">
+  <header class="site-header">
+    <a class="brand" href="index.html">MNDRDA</a>
+    <nav aria-label="Main">
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+      <a href="fun.html">Fun Things!</a>
+    </nav>
+  </header>
+
+  <main>
+    <header class="page-head reveal">
+      <h1 class="page-title">Moran Eye Center - Retinal Research <span class="badge badge--inline">Current</span></h1>
+      <p class="meta">John A. Moran Eye Center &middot; Sept 2025 &ndash; Present &middot; 2&times; Undergraduate Research Opportunities Program (UROP) Scholar</p>
+      <p class="role">My role: undergraduate research assistant. Currently exploring statistical models and their usage in tree shrew retinal encoding</p>
+      <ul class="tags"><li>Research</li><li>Data</li></ul>
+      <nav class="page-nav" aria-label="On this page">
+        <span class="page-nav__label">Jump to</span>
+        <a href="#contributions">Key contributions</a>
+        <a href="#gallery">Figures</a>
+        <a href="#skills">Skills</a>
+        <a href="#story">Full story</a>
+      </nav>
+    </header>
+
+
+    <div class="split split--wide-left reveal">
+      <figure>
+        <a class="media-frame media-frame--16x9 media-frame--tall" href="assets/moran/moran-figure.png" target="_blank" rel="noopener" aria-label="Open the model comparison figure full size in a new tab">
+          <img class="media media--contain" src="assets/moran/moran-figure.png" alt="Cell 5626 spike raster across 108 trials above three plots comparing the measured firing rate (PSTH, gray) with model predictions: Histogram LNP in blue (r = 0.601), GLM-MLE in red (r = 0.466), and Hybrid LNP + GLM-NL in green (r = 0.598)" width="2004" height="1520">
+        </a>
+        <figcaption>Machine learning models compared: LNP, GLM, and a hybrid LNP + GLM predicting measured retinal spike firing (Cell 5626)</figcaption>
+      </figure>
+      <div id="contributions">
+        <h2 class="section-title">Key contributions</h2>
+        <ul class="highlights">
+          <li>Built a full stimulus-to-prediction modeling pipeline on large neural recording datasets</li>
+          <li>Wrote a Python tool that automates OCT retinal layer segmentation</li>
+          <li>Built Linux/Bash pipelines for large-scale data transfer and analysis across the lab&rsquo;s retinal databases</li>
+          <li>Awarded the Undergraduate Research Opportunities Program scholarship twice; contributed to the lab website</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="section reveal" id="gallery">
+      <h2 class="section-title">Figures</h2>
+      <div class="figure-row">
+        <figure>
+          <div class="media-frame media-frame--abstract">
+            <img class="media media--contain" loading="lazy" src="assets/moran/graphical-abstract.png" alt="Graphical abstract. Top: the eye observes a visual scene, and retinal ganglion cells respond with spikes. Bottom: a camera image goes through computer vision processing into 18 retina-inspired features and a spiking neuron model that outputs spikes." width="1294" height="602">
+          </div>
+          <figcaption>Graphical abstract: from a visual scene to spikes</figcaption>
+        </figure>
+        <figure>
+          <a class="media-frame media-frame--16x9" href="assets/moran/wnr-spike-raster.png" target="_blank" rel="noopener" aria-label="Open the spike raster figure full size in a new tab">
+            <img class="media media--contain" src="assets/moran/wnr-spike-raster.png" alt="Spike raster for Cell 3511 across 108 trials in 9 blocks of a repeated 10-second stimulus, with a bar plot of spikes per trial at right" width="2728" height="1542" loading="lazy">
+          </a>
+          <figcaption>Spike raster across 108 stimulus repeats (Cell 3511)</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section reveal" id="skills">
+      <h2 class="section-title">Skills demonstrated</h2>
+      <ul class="tags">
+        <li>MATLAB</li>
+        <li>Python</li>
+        <li>Linux</li>
+        <li>Bash</li>
+        <li>XML</li>
+        <li>Statistical modeling</li>
+        <li>Machine learning</li>
+        <li>Signal processing</li>
+      </ul>
+      <p class="softskills"><strong>Beyond the technical:</strong> Self-directed research &middot; Persistence &middot; Collaboration</p>
+    </section>
+
+    <section class="section prose reveal" id="story">
+      <h2 class="section-title">The full story</h2>
+      <p>I&rsquo;m building a MATLAB pipeline that models how retinal ganglion cells respond to visual stimuli, using multielectrode array recordings from rat and tree shrew retinas. The pipeline converts XML stimulus movies into a movie buffer, computes spike-triggered averages to map each cell&rsquo;s receptive field, and fits a Linear-Nonlinear-Poisson (LNP) model with spatial and temporal filters and a nonlinear generator signal. I then added a Generalized Linear Model (GLM) stage that refines predictions so the model can forecast a cell&rsquo;s spike train from the stimulus alone across repeated movies. Extending the model from rat to tree shrew supports the lab&rsquo;s glaucoma research.</p>
+
+      <h3>Background</h3>
+      <p>The retina is a sophisticated neural circuit that performs a variety of computations on input stimuli before visual signals reach the brain. Although major retinal pathways are well studied, the small-scale variations and irregularities in how these cells interact, known as retinal circuit anomalies, remain poorly understood. These anomalies directly influence how visual information is processed within and across cell populations (Demb &amp; Singer, 2015). Understanding these computations is key to identifying how the retina encodes natural signals in healthy state and how encoding is disrupted in diseased state, such as in glaucoma.</p>
+      <p>Most existing retinal computational models describe retinal functions in a rod-dominated system, such as the rat retina, which has evolved for supporting low-light vision. These models include Linear-Nonlinear-Poisson cascade (LNP) and Generalized Linear Models (GLM), which provide a strong basis for canonical retinal computations based on stimulus-response relationships (Chichilnisky, 2001). However, they do not capture the temporal precision, nonlinear response properties, and circuit level dynamics of cone-dominated retinas suited for diurnal vision, the regime that closely reflects conditions encountered by the human visual system. This leaves a significant gap in our understanding of how retinal circuits process natural stimuli in diurnal conditions, specifically in the fovea, where high-acuity visual processing occurs.</p>
+      <p>Existing LNP and GLM implementations described in literature and that are publicly available in codebases have been utilized to model neural spike trains, but they are not designed to fit the data the Roy lab produces. Closing this gap required developing new LNP and GLM models from the ground up, specifically adapted to the lab&rsquo;s specific structure: white noise, white noise repeats, and natural movies. In the resulting scripts, the LNP model uses the white noise stimulus to compute a spike-triggered average (STA), the cell&rsquo;s estimated receptive field, which is validated against the STA produced by the Vision software; this becomes the linear filter. A fitted nonlinearity then converts the filtered stimulus into a predicted firing rate. The parallel GLM uses the same stimulus and receptive field within its regression framework. Building both models to operate reliably on the lab&rsquo;s multielectrode array (MEA) data recordings was the substantial foundational work of the previous award.</p>
+    </section>
+
+    <nav class="pager" aria-label="More projects">
+      <a href="reu.html">&larr; Previous: Remote Sensing at ECE MSU</a>
+      <a href="slac.html">Next: SLAC &rarr;</a>
+    </nav>
+  </main>
+</body>
+</html>

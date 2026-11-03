@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GIS - Water Stress | MNDRDA</title>
+  <meta name="description" content="GIS and water stress: investigating where data centers are placed relative to water-stressed and vulnerable communities.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MNDRDA">
+  <meta property="og:title" content="GIS - Water Stress | MNDRDA">
+  <meta property="og:description" content="GIS and water stress: investigating where data centers are placed relative to water-stressed and vulnerable communities.">
+  <meta property="og:url" content="https://marisandrda.github.io/gis.html">
+  <meta property="og:image" content="https://marisandrda.github.io/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body data-terrain="wasatch">
+  <header class="site-header">
+    <a class="brand" href="index.html">MNDRDA</a>
+    <nav aria-label="Main">
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+      <a href="fun.html">Fun Things!</a>
+    </nav>
+  </header>
+
+  <main>
+    <header class="page-head reveal">
+      <h1 class="page-title">GIS - Water Stress</h1>
+      <p class="meta">Sustainable Computing &middot; University of Utah &middot; Fall 2026 &middot; with Jack McIntyre</p>
+      <p class="role">My role: built the ArcGIS Pro maps that combine Aqueduct 4.0 water risk with data center locations</p>
+      <ul class="tags"><li>Research</li><li>Data</li></ul>
+      <nav class="page-nav" aria-label="On this page">
+        <span class="page-nav__label">Jump to</span>
+        <a href="#findings">What the maps show</a>
+        <a href="#scenarios">Scenarios</a>
+        <a href="#method">Method</a>
+        <a href="#next">Next steps</a>
+        <a href="#skills">Skills</a>
+        <a href="#story">Full story</a>
+      </nav>
+    </header>
+
+    <div class="split split--wide-left reveal">
+      <figure id="maps">
+        <a class="media-frame media-frame--map" href="assets/gis/current.jpg" target="_blank" rel="noopener" aria-label="Open the current water stress map full size in a new tab">
+          <img class="media media--contain" src="assets/gis/current.jpg" alt="Map of North America showing each river basin colored by water demand versus availability, from orange (high demand, low availability) to blue (low demand, high availability), with purple points marking U.S. data centers. Orange basins cover most of the western U.S. and many data centers sit in or beside them." width="2000" height="1545">
+        </a>
+        <figcaption>Data center locations over current water demand vs. availability in North America (<a href="assets/gis/current.pdf">PDF layout</a>)</figcaption>
+      </figure>
+      <div id="findings">
+        <h2 class="section-title">What the maps show</h2>
+        <ul class="highlights">
+          <li>Data centers cluster in basins with high water demand and low availability, including Phoenix, Tucson, and north and northwest Texas</li>
+          <li>A belt of East Coast data centers sits in a region with lower availability than its coastal neighbors</li>
+          <li>Basins with high availability and low demand hold few data centers</li>
+          <li>Built on Aqueduct 4.0, WRI&rsquo;s very large global hydrological model dataset, layered with 1,711 data center sites</li>
+        </ul>
+        <p><strong>These are preliminary, midterm results.</strong> The patterns above come from visual spatial analysis, and the statistical comparison is still ahead.</p>
+      </div>
+    </div>
+
+    <section class="section reveal" id="scenarios">
+      <h2 class="section-title">How to read it, and what changes in the future</h2>
+      <p>Each basin is colored by two Aqueduct indicators at once. Orange means high water demand and low availability, blue means low demand and high availability, and purple points are data centers shaded by status (approved or under construction, expanding, operating, pre-proposal, proposed, suspended).</p>
+      <p>Drag the slider to compare two future scenarios. The data center points are identical in both maps, so only the water layer changes.</p>
+      <div class="compare compare--map">
+        <div class="compare__layer compare__after">
+          <img class="media media--contain" src="assets/gis/future-pessimistic.jpg" alt="Map of North America under the pessimistic future water scenario: much of the western, central, and southeastern U.S. is orange or brown, meaning high demand and low availability, with purple data center points across the country" width="2000" height="1545" loading="lazy">
+        </div>
+        <div class="compare__layer compare__before">
+          <img class="media media--contain" src="assets/gis/future-bau.jpg" alt="Map of North America under the business-as-usual future water scenario: the central and northern U.S. is mostly blue or gray, meaning higher availability, with orange concentrated in the Southwest and Rockies and purple data center points across the country" width="2000" height="1545" loading="lazy">
+        </div>
+        <span class="compare__handle" aria-hidden="true"></span>
+        <input class="compare__range" type="range" min="0" max="100" value="50" aria-label="Compare the business-as-usual and pessimistic future water maps">
+      </div>
+      <div class="compare__legend compare__legend--map" aria-hidden="true">
+        <span>Future: business as usual</span>
+        <span>Future: pessimistic</span>
+      </div>
+      <p>Under the pessimistic outlook, where water use keeps outpacing supply, more of the central and eastern U.S. shifts toward high demand and low availability. Full layouts: <a href="assets/gis/future-bau.pdf">business as usual (PDF)</a> &middot; <a href="assets/gis/future-pessimistic.pdf">pessimistic (PDF)</a>.</p>
+    </section>
+
+    <section class="section reveal" id="method">
+      <h2 class="section-title">How it came together</h2>
+      <p>The core of the project is the Aqueduct 4.0 hydrological model. It turns PCR-GLOBWB 2 model outputs into water risk indicators for regions across the globe, with optimistic, current, and pessimistic values for each water state. That is big data: a very large, multi-scenario geospatial dataset that can&rsquo;t be compared by hand, so ArcGIS Pro does the heavy lifting of matching coordinate systems and layering it with the other datasets. The results are still preliminary.</p>
+      <ol class="steps">
+        <li><a href="#scenarios"><strong>Water risk (big data)</strong><span>Pulled WRI&rsquo;s very large Aqueduct 4.0 hydrological model dataset from the Esri Living Atlas into ArcGIS Pro and mapped demand against availability for current and future scenarios.</span></a></li>
+        <li><a href="#findings"><strong>Data centers</strong><span>Cleaned the FracTracker Alliance tracker (1,711 sites) down to name, latitude, longitude, and status, and plotted each site by status.</span></a></li>
+        <li><a href="#findings"><strong>Social vulnerability</strong><span>Merged the sites with the 2022 CDC/ATSDR Social Vulnerability Index for 3,144 counties and compared each SVI quartile&rsquo;s share of data centers.</span></a></li>
+      </ol>
+    </section>
+
+    <section class="section reveal prose" id="next">
+      <h2 class="section-title">Where it goes next</h2>
+      <p>The maps set up a three-group county comparison: counties with high demand, low availability, and data centers; counties with high demand, high availability, and data centers; and counties with high demand, low availability, and none. Each group will then be compared on income, health costs, and resource pricing, and I plan to test regression models to see which fits best.</p>
+      <p>Two limits I&rsquo;m working around: the analysis doesn&rsquo;t yet account for data center size, and metropolitan counties, which have many sites and low vulnerability, carry too much weight. The tracker is also user-submitted and run by an advocacy group, so I cleaned it and checked its cited sources before mapping.</p>
+    </section>
+
+    <section class="section reveal" id="skills">
+      <h2 class="section-title">Skills demonstrated</h2>
+      <ul class="tags">
+        <li>ArcGIS Pro</li>
+        <li>Spatial analysis</li>
+        <li>Data cleaning</li>
+        <li>Cartography</li>
+        <li>Data visualization</li>
+        <li>Big geospatial data</li>
+        <li>Hydrological model data (Aqueduct 4.0)</li>
+      </ul>
+      <p class="softskills"><strong>Beyond the technical:</strong> Teamwork &middot; Data storytelling</p>
+    </section>
+
+    <section class="section prose reveal" id="story">
+      <h2 class="section-title">The full story</h2>
+      <p>Data centers use water directly for cooling and indirectly through the electricity that powers them. This project doesn&rsquo;t measure that use. It asks a prior question: are U.S. data centers disproportionately placed in water-stressed regions and in socially vulnerable communities?</p>
+      <p>The starting observation was that data centers often seem to land in regions that already strain their water, like the planned Box Elder data center in Utah. The maps test that across the whole country, and the social vulnerability analysis checks who lives near these sites.</p>
+      <p>So far, the maps show data centers clustering in water-stressed basins. These are preliminary midterm results from working with the Aqueduct 4.0 hydrological model, and the county-group comparison and social vulnerability analysis will test them further.</p>
+    </section>
+
+    <nav class="pager" aria-label="More projects">
+      <a href="she-rocks.html">&larr; Previous: She Rocks</a>
+      <a href="reu.html">Next: Remote Sensing at ECE MSU &rarr;</a>
+    </nav>
+  </main>
+</body>
+</html>

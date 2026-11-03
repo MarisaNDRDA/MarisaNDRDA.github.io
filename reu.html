@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NSF REU at MSU | MNDRDA</title>
+  <meta name="description" content="NSF REU at Montana State University: a lab-built river mesocosm and sensor system for testing a hyperspectral imager.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MNDRDA">
+  <meta property="og:title" content="NSF REU at MSU | MNDRDA">
+  <meta property="og:description" content="NSF REU at Montana State University: a lab-built river mesocosm and sensor system for testing a hyperspectral imager.">
+  <meta property="og:url" content="https://marisandrda.github.io/reu.html">
+  <meta property="og:image" content="https://marisandrda.github.io/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body data-terrain="wasatch">
+  <header class="site-header">
+    <a class="brand" href="index.html">MNDRDA</a>
+    <nav aria-label="Main">
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+      <a href="fun.html">Fun Things!</a>
+    </nav>
+  </header>
+
+  <main>
+    <header class="page-head reveal">
+      <h1 class="page-title">NSF REU at the ECE dept. at MSU</h1>
+      <p class="meta">Riverine Mesocosm for Hyperspectral Remote Sensing &middot; Montana State University, Electrical &amp; Computer Engineering &middot; Summer 2026</p>
+      <p class="role">My role: undergraduate research assistant, alongside Riley Logan, PhD. at the EMBR Optical engineering department</p>
+      <ul class="tags"><li>Research</li><li>Hardware</li><li>Data</li></ul>
+      <nav class="page-nav" aria-label="On this page">
+        <span class="page-nav__label">Jump to</span>
+        <a href="#contributions">Key contributions</a>
+        <a href="#process">Process</a>
+        <a href="#microscope">Microscope</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#sky-glint">Sky glint &amp; spectra</a>
+        <a href="#skills">Skills</a>
+        <a href="#story">Full story</a>
+        <a href="#cohort">Cohort</a>
+      </nav>
+    </header>
+
+
+    <div class="split reveal">
+      <figure>
+        <div class="media-frame">
+          <a href="assets/reu/poster.jpg" target="_blank" rel="noopener" aria-label="Open the full-size research poster in a new tab">
+            <img class="media" src="assets/reu/poster.jpg" alt="Research poster: Development and Validation of a Riverine Mesocosm for Hyperspectral Remote Sensing of Cladophora glomerata, by Marisa Nieto Del Rio De Astis and Riley Logan, PhD, Montana State University" width="2400" height="1800">
+          </a>
+        </div>
+        <figcaption>Research poster (NSF Grant No. 2349091) &middot; <a href="assets/reu/poster.jpg" target="_blank" rel="noopener">View full size</a></figcaption>
+      </figure>
+      <div id="contributions">
+        <h2 class="section-title">Key contributions</h2>
+        <ul class="highlights">
+          <li>Gave the lab a reusable, controllable testbench for imager validation and classifier fine-tuning; the algae is still thriving and the tank is available to the lab whenever it&rsquo;s needed</li>
+          <li>Built an end-to-end sensor system: hardware integration, calibration against theoretical predictions, and a live dashboard</li>
+          <li>Diagnosed and fixed a field data-quality problem (sky glint) through physical redesign</li>
+          <li>Analyzed sensor and spectral data to validate the testbench: measured conductivity and pH against chemistry-model predictions (Kohlrausch&rsquo;s law, ionic strength, carbonate equilibria) and compared algae, diatom, and bare-substrate spectra with prior field data. This matters because harmful algal blooms threaten public health, ecosystems, and local economies in impaired rivers, and remote sensing tools need to be tested before they are trusted to monitor them</li>
+          <li>Presented results as a research poster (NSF Grant No. 2349091)</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="section reveal" id="process">
+      <h2 class="section-title">How it came together</h2>
+      <ol class="steps">
+        <li><a href="#microscope"><strong>Collect &amp; confirm</strong><span>Collected <em>Cladophora</em> from the Gallatin and Madison Rivers and confirmed it with an improvised polarized microscope.</span></a></li>
+        <li><a href="#gallery"><strong>Build the mesocosm</strong><span>Designed a 12&Prime; &times; 24&Prime; &times; 20&Prime; recirculating tank with pump-driven flow, then used water chemistry analysis to mimic a bloom and trigger one in the mesocosm to be imaged.</span></a></li>
+        <li><a href="#gallery"><strong>Monitor the water</strong><span>Built an Arduino sensor system that tracked conductivity, pH, turbidity, and temperature for two weeks.</span></a></li>
+        <li><a href="#sky-glint"><strong>Test in the field</strong><span>Took the tank outside with a Pika L imager, then redesigned the rig to beat sky glint.</span></a></li>
+        <li><a href="#sky-glint"><strong>Analyze the spectra</strong><span>Spectra for algae, diatoms, and bare substrate matched prior field data.</span></a></li>
+      </ol>
+    </section>
+
+    <section class="section reveal split" id="microscope">
+      <figure>
+        <div class="media-frame media-frame--wide">
+          <img class="media media--contain" src="assets/reu/polarized-microscope.png" alt="The improvised polarized microscope beside its light-path diagram, with micrographs of healthy Cladophora glomerata showing birefringence and bleached Cladophora glomerata showing the wave plate effect" width="590" height="274" loading="lazy">
+        </div>
+        <figcaption>The simplified polarized microscope and what it showed</figcaption>
+      </figure>
+      <div class="prose">
+        <h2 class="section-title">A polarized microscope I built</h2>
+        <p>To confirm that the algae I collected was <em>Cladophora glomerata</em>, I improvised a polarized-light microscope from 2 SPIE polarizers, 2 half-wave plates, and LEDs with paper as a diffuser.</p>
+        <p>Healthy <em>C. glomerata</em> showed its birefringent property under polarized light, and a wave plate changed the color response of bleached samples.</p>
+        <p class="takeaway"><strong>Why it matters</strong>Applying optics (polarization and wave plates) to a biology question, using materials on hand.</p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="gallery">
+      <h2 class="section-title">Gallery</h2>
+      <div class="figure-row">
+        <figure>
+          <div class="media-frame">
+            <img class="media media--contain" src="assets/reu/sensor.jpg" alt="Wiring diagram of the water-quality sensor system: an Arduino UNO R4 WiFi connected to conductivity, pH, and turbidity sensors" width="1080" height="1080" loading="lazy">
+          </div>
+          <figcaption>The Sensor</figcaption>
+        </figure>
+        <figure>
+          <div class="media-frame">
+            <img class="media" src="assets/reu/day3-setup.jpg" alt="The mesocosm tank inside a black enclosure on a cart, with the hyperspectral imager on an orange ladder above it" width="1200" height="1600" loading="lazy" style="object-position: 50% 75%">
+          </div>
+          <figcaption>The mesocosm and imager on field day 3</figcaption>
+        </figure>
+        <figure>
+          <div class="media-frame">
+            <img class="media" src="assets/reu/algae-tank.jpg" alt="Top-down view of the mesocosm tank filled with thriving green Cladophora algae, lit by LED strips" width="900" height="1200" loading="lazy" style="object-position: 50% 55%">
+          </div>
+          <figcaption>The thriving algae tank</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section reveal" id="sky-glint">
+      <h2 class="section-title">Fixing sky glint</h2>
+      <p>The first field deployment&rsquo;s images were unusable because of sky glint. Raising the imager and baffling the glass fixed it.</p>
+      <div class="sky">
+        <div>
+          <h3>Before and after</h3>
+          <div class="sky__pair">
+            <figure>
+              <div class="media-frame media-frame--day1">
+                <img class="media media--contain" src="assets/reu/day1-tank.png" alt="Before, Day 1: a dark hyperspectral capture of the tank rocks, unusable because of sky glint" width="138" height="347" loading="lazy">
+              </div>
+              <figcaption><strong>Before:</strong> Day 1</figcaption>
+            </figure>
+            <figure>
+              <div class="media-frame media-frame--day3">
+                <img class="media media--contain" src="assets/reu/day3-tank.png" alt="After, Day 3: a usable hyperspectral capture of the tank showing green algae-covered rocks" width="405" height="668" loading="lazy">
+              </div>
+              <figcaption><strong>After:</strong> Day 3</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div id="spectra">
+          <h3>Spectral responses</h3>
+          <div class="figure-row">
+            <figure>
+              <div class="media-frame media-frame--3x2">
+                <img class="media media--contain" src="assets/reu/response-cladophora.png" alt="Spectral response chart for Cladophora glomerata, with reflectance rising sharply near 700 nanometers" width="579" height="374" loading="lazy">
+              </div>
+              <figcaption><em>Cladophora glomerata</em></figcaption>
+            </figure>
+            <figure>
+              <div class="media-frame media-frame--3x2">
+                <img class="media media--contain" src="assets/reu/response-diatom.png" alt="Spectral response chart for diatoms from the Day 3 deployment" width="581" height="377" loading="lazy">
+              </div>
+              <figcaption>Diatoms</figcaption>
+            </figure>
+            <figure>
+              <div class="media-frame media-frame--3x2">
+                <img class="media media--contain" src="assets/reu/response-bare-substrate.png" alt="Spectral response chart for bare substrate from the Day 3 deployment" width="584" height="375" loading="lazy">
+              </div>
+              <figcaption>Bare substrate</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="sky__notes">
+          <h3>What changed</h3>
+          <ul>
+            <li><strong>Day 1 (Jul 21, 2026):</strong> standard setup with a tripod and Pika L stage, the imager as close to nadir as possible over the tank. Clear, sunny sky. Images were unusable due to sky glint.</li>
+            <li><strong>Day 3 (Jul 24, 2026):</strong> raised the imager with a ladder rig and added baffles to the outer glass panes and the interior pane receiving direct sunlight. Clear, sunny, smoky sky. Usable images and spectra.</li>
+          </ul>
+          <h3>What the spectra show</h3>
+          <ul>
+            <li><strong><em>C. glomerata</em>:</strong> a chlorophyll-a signature. High green, then a dip and a dramatic rise in the red bands (the &ldquo;red edge&rdquo;).</li>
+            <li><strong>Diatoms:</strong> a chlorophyll-a signature but no red dip, suggesting diatoms covering the algae and dimming the response.</li>
+            <li><strong>Bare substrate:</strong> the color of the rock, with no defined dip.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="skills">
+      <h2 class="section-title">Skills demonstrated</h2>
+      <ul class="tags">
+        <li>Arduino UNO R4 WiFi</li>
+        <li>EC/pH/turbidity/temperature sensors</li>
+        <li>Pika L hyperspectral imager</li>
+        <li>Spectronon</li>
+        <li>Python</li>
+        <li>MATLAB</li>
+        <li>Polarized light microscopy</li>
+        <li>Water chemistry</li>
+      </ul>
+      <p class="softskills"><strong>Beyond the technical:</strong> Collaboration &middot; Scientific communication &middot; Problem solving</p>    </section>
+
+    <section class="section prose reveal" id="story">
+      <h2 class="section-title">The full story</h2>
+      <p>The lab&rsquo;s multispectral imager couldn&rsquo;t be validated because there were no algal blooms in the field. I designed and built a 12&Prime; &times; 24&Prime; &times; 20&Prime; recirculating mesocosm that recreates river conditions in the lab. It uses pump-driven flow over rocks to mimic current, and a dosing schedule I developed, starting from deionized water, to reproduce the river and bloom chemistry. I collected <em>Cladophora glomerata</em> from the Gallatin and Madison Rivers, confirmed the species with an improvised polarized-light microscope, and grew it in the tank.</p>
+      <p>To provide ground truth for the imager, I built a continuous water-quality monitoring system using an Arduino UNO R4 WiFi with conductivity, pH, turbidity, and temperature sensors. It ran continuously for two weeks, serving its own web dashboard with live readings and reports. I used chemistry models (Kohlrausch&rsquo;s law, ionic strength, carbonate equilibria) to predict expected readings and compared them against measured values.</p>
+      <p>Finally, I took the tank into the field with a Pika L hyperspectral imager. The first deployment&rsquo;s images were unusable because of sky glint, so I redesigned the setup with a raised ladder rig and baffled glass. The resulting spectra for algae (including the chlorophyll red edge), diatoms, and bare substrate matched prior field data captured with the same imager and calibration.</p>
+    </section>
+
+    <section class="section reveal" id="cohort">
+      <h2 class="section-title">The REU cohort</h2>
+      <div class="figure-row">
+        <figure>
+          <div class="media-frame">
+            <img class="media" src="assets/reu/cohort-photo.jpg" alt="The REU cohort smiling at the poster session, holding rolled-up posters and a printed copy of the mesocosm poster" width="1600" height="1200" loading="lazy">
+          </div>
+          <figcaption>The cohort at the poster session</figcaption>
+        </figure>
+        <figure>
+          <div class="media-frame">
+            <img class="media" src="assets/reu/cohort-fun.jpg" alt="The REU cohort with backpacks, arms around each other in front of the Iron Creek Trailhead sign" width="1600" height="1200" loading="lazy">
+          </div>
+          <figcaption>The cohort on a backpacking trip</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <nav class="pager" aria-label="More projects">
+      <a href="gis.html">&larr; Previous: GIS Water Stress</a>
+      <a href="moran.html">Next: Moran Eye Center &rarr;</a>
+    </nav>
+  </main>
+</body>
+</html>
